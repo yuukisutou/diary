@@ -1,0 +1,15 @@
+h1 その日あった嫌なことを書いてみよう
+
+- if @negative_event.errors.present?
+  ul#error_explanation
+    - event.errors.full_messages.each do |message|
+      li= message
+
+= form_with model: @negativeEvent, local: true do |f|
+  .form-group
+    = f.label :name, 'ネガティブな出来事'
+    = f.text_field :name, class: 'form-control', id: 'event_name'
+  .form-group
+    = f.label :description, '出来事の詳しい説明'
+    = f.text_area :description, rows: 5, class: 'form-control', id: 'event_description'
+= link_to '次へ', new_event_path, class: 'btn btn-primary'

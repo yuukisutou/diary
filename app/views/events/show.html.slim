@@ -1,0 +1,24 @@
+h1 記録の詳細
+
+.nav.justify-content-end
+  = link_to '一覧', events_path, class: 'nav-link'
+table.table.table-hover
+  tbody
+    tr
+      th= Event.human_attribute_name(:id)
+      td= @event.id
+    tr
+      th= Event.human_attribute_name(:name)
+      td= @event.name
+    tr
+      th= Event.human_attribute_name(:description)
+      td= auto_link(simple_format(h(@event.description), {}, sanitize: false, wrapper_tag: "div"))
+    tr
+      th= Event.human_attribute_name(:created_at)
+      td= @event.created_at
+    tr
+      th= Event.human_attribute_name(:updated_at)
+      td= @event.updated_at
+
+= link_to '編集', edit_event_path, class: 'btn btn-primary mr-3'
+= link_to '削除', @event, method: :delete, data: { confirm: "記事「#{@event.name}」を削除します。よろしいですか？"}, class: 'btn btn-danger'

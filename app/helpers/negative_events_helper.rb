@@ -1,0 +1,2 @@
+module NegativeEventsHelper
+end

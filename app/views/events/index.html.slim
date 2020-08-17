@@ -1,0 +1,20 @@
+h1 記録一覧
+
+= link_to '新規投稿', new_negative_event_path, class: 'btn btn-primary'
+
+.mb-3
+table.table.table-hover
+  thead.thead-default
+    tr
+      th= Event.human_attribute_name(:name)
+      th= Event.human_attribute_name(:created_at)
+      th
+  tbody
+    - @events.each do |event|
+      tr
+        td= link_to event.name, event
+        td= event.created_at
+        td
+          = link_to '編集', edit_event_path(event), class: 'btn btn-primary mr-3'
+          = link_to '削除', event, method: :delete, data: { confirm: "記事「#{event.name}」を削除します。よろしいですか？"}, class: 'btn btn-danger'
+          

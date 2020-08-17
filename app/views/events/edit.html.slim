@@ -1,0 +1,6 @@
+h1 記事の編集
+
+.nav.justify-content-end
+  = link_to '一覧', events_path, class: 'nav-link'
+
+= render partial: 'form', locals: { event: @event }

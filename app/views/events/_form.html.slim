@@ -1,0 +1,13 @@
+- if event.errors.present?
+  ul#error_explanation
+    - event.errors.full_messages.each do |message|
+      li= message
+
+= form_with model: event, local: true do |f|
+  .form-group
+    = f.label :name, 'ポジティブな内容に無理やり変換'
+    = f.text_field :name, class: 'form-control', id: 'event_name'
+  .form-group
+    = f.label :description, '出来事の詳しい説明'
+    = f.text_area :description, rows: 5, class: 'form-control', id: 'event_description'
+  = f.submit nil, class: 'btn btn-primary'
