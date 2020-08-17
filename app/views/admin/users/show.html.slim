@@ -1,7 +1,6 @@
 h1 ユーザーの詳細
 
-.nav.justify-content-end
-  =link_to '一覧', admin_users_path, class: 'nav-link'
+
 table.table.table-hover
   tbody
     tr
@@ -25,3 +24,6 @@ table.table.table-hover
 
 = link_to '編集', edit_admin_user_path, class: 'btn btn-primary mr-3'
 = link_to '削除', [:admin, @user], method: :delete, data: { confirm: "ユーザー「#{@user.name}」を削除します。よろしいですか？" }, class: 'btn btn-danger'
+
+.mb-5
+= link_to 'さっそく始める!!!!!', events_path, class: 'btn btn-primary'
