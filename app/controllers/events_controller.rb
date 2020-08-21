@@ -4,7 +4,7 @@ class EventsController < ApplicationController
 
   def index
     @q = current_user.events.ransack(params[:q])
-    @events = @q.result(distinct: true). recent
+    @events = @q.result(distinct: true)
   end
 
   def show
