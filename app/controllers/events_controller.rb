@@ -3,7 +3,8 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
-    @events = current_user.events
+    @q = current_user.events.ransack(params[:q])
+    @events = @q.result(distinct: true). recent
   end
 
   def show
