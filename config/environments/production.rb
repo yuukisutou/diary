@@ -63,7 +63,19 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "diary_#{Rails.env}"
 
-  config.action_mailer.perform_caching = false
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address              => 'mail.domain.com',
+    :port                 => '465',
+    :domain               => 'yourdomain.com',
+    :user_name            => 'email@yourdomain.com',
+    :password             => 'yourpassword',
+    :authentication       => :login,
+    :ssl                  => true,
+    :openssl_verify_mode  => 'none' #Use this because ssl is activated but we have no certificate installed. So clients need to confirm to use the untrusted url.
+  }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
