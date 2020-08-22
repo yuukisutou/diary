@@ -63,18 +63,22 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "diary_#{Rails.env}"
 
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = false
+  #deviseが認証用のURLなどを生成するのに必要になる（らしい）
+  config.action_mailer.default_url_options = {  :host => 'http://ipアドレス'or'ドメイン  名' }
+  #送信方法を指定（この他に:sendmail/:file/:testなどがあります)
   config.action_mailer.delivery_method = :smtp
+  #送信方法として:smtpを指定した場合は、このconfigを使って送信詳細の設定を行います
   config.action_mailer.smtp_settings = {
-    :address              => 'mail.domain.com',
-    :port                 => '465',
-    :domain               => 'yourdomain.com',
-    :user_name            => 'email@yourdomain.com',
-    :password             => 'yourpassword',
-    :authentication       => :login,
-    :ssl                  => true,
-    :openssl_verify_mode  => 'none' #Use this because ssl is activated but we have no certificate installed. So clients need to confirm to use the untrusted url.
+    #gmail利用時はaddress,domain,portは下記で固定
+    address:"smtp.gmail.com",
+    domain: 'gmail.com',
+    port:587,
+    #gmailのユーザアカウント（xxxx@gmail.com)※念のため、credentials.yml.enc行き
+    user_name: Rails.application.credentials.gmail[:user_name],
+    #gmail２段階認証回避のためにアプリケーションでの利用パスワードを取得、必ず credentials.yml.endに設定を！！
+    password: Rails.application.credentials.gmail[:password],
+    #パスワードをBase64でエンコード
+    authentication: :login
   }
 
   # Ignore bad email addresses and do not raise email delivery errors.
