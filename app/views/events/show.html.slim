@@ -14,6 +14,9 @@ table.table.table-hover
       th= Event.human_attribute_name(:description)
       td= auto_link(simple_format(h(@event.description), {}, sanitize: false, wrapper_tag: "div"))
     tr
+      th= Event.human_attribute_name(:image)
+      td= image_tag @event.image if @event.image.attached?
+    tr
       th= Event.human_attribute_name(:created_at)
       td= @event.created_at
     tr

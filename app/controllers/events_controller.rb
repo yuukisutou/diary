@@ -30,7 +30,13 @@ class EventsController < ApplicationController
   def create
     @event = current_user.events.new(event_params)
 
+    if params[:back].present?
+      render :new
+      return
+    end
+
     if @event.save
+      EventMailer.creation_email(@event).deliver_now
       redirect_to @event, notice: "記事「#{@event.name}」を登録しました"
     else
       render :new
@@ -40,7 +46,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:name, :description)
+    params.require(:event).permit(:name, :description, :image)
   end
 
   def set_event

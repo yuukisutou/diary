@@ -14,6 +14,7 @@ ja:
     id: ID
     name: 出来事
     description: 出来事の詳しい説明
+    image: ポジティブアイテム画像
     created_at: 投稿日時
     updated_at: 更新日時
 
