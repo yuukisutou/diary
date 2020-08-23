@@ -5,6 +5,11 @@ class EventsController < ApplicationController
   def index
     @q = current_user.events.ransack(params[:q])
     @events = @q.result(distinct: true)
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @events.generate_csv, filename: "events-#{Time.zone.now.strftime('%Y%m%d%S')}.csv" }
+    end
   end
 
   def show
@@ -41,6 +46,11 @@ class EventsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def import
+    current_user.events.import(params[:file])
+    redirect_to events_url, notice: "記事を追加しました"
   end
 
   private

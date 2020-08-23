@@ -14,5 +14,8 @@ Rails.application.routes.draw do
   
   get '/event/index', to: 'events#index'
   
-  resources :events
+  resources :events do
+    post :confirm, action: :confirm_new, on: :new
+    post :import, on: :collection
+  end
 end
