@@ -18,4 +18,7 @@ Rails.application.routes.draw do
     post :confirm, action: :confirm_new, on: :new
     post :import, on: :collection
   end
+  
+  require 'sidekiq/web'
+   mount Sidekiq::Web, at: "/sidekiq"
 end

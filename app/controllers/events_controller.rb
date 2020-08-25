@@ -4,7 +4,7 @@ class EventsController < ApplicationController
 
   def index
     @q = current_user.events.ransack(params[:q])
-    @events = @q.result(distinct: true)
+    @events = @q.result(distinct: true).page(params[:page]).per(10)
 
     respond_to do |format|
       format.html
@@ -42,6 +42,7 @@ class EventsController < ApplicationController
 
     if @event.save
       EventMailer.creation_email(@event).deliver_now
+      SampleJob.perform_later
       redirect_to @event, notice: "記事「#{@event.name}」を登録しました"
     else
       render :new

@@ -14,8 +14,12 @@ h1 記録一覧
 
 
 = link_to '新規投稿', new_negative_event_path, class: 'btn btn-primary'
+.mb-3
 
 .mb-3
+  = paginate @events
+  = page_entries_info @events
+
 table.table.table-hover
   thead.thead-default
     tr
