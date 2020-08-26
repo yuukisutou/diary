@@ -1,0 +1,5 @@
+document.querySelector("#event-<%= @event.id %>").style.display = 'none';
+
+var message = document.createElement('p');
+message.innerText = '記事「<%= @event.name %>」を削除しました。残りの記事は<%= current_user.events.count %>件です。';
+document.querySelector('table').insertAdjacentElement('beforebegin', message);

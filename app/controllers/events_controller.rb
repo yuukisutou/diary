@@ -29,7 +29,6 @@ class EventsController < ApplicationController
 
   def destroy
     @event.destroy
-    redirect_to events_url, notice: "記事「#{@event.name}」を削除しました"
   end
 
   def create
@@ -42,7 +41,6 @@ class EventsController < ApplicationController
 
     if @event.save
       EventMailer.creation_email(@event).deliver_now
-      SampleJob.perform_later
       redirect_to @event, notice: "記事「#{@event.name}」を登録しました"
     else
       render :new
