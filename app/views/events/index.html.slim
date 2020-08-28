@@ -24,7 +24,6 @@ table.table.table-hover
   thead.thead-default
     tr
       th= sort_link(@q, :name)
-      th= Event.human_attribute_name(:name)
       th= Event.human_attribute_name(:created_at)
       th
   tbody
