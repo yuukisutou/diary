@@ -40,7 +40,6 @@ class EventsController < ApplicationController
     end
 
     if @event.save
-      EventMailer.creation_email(@event).deliver_now
       redirect_to @event, notice: "記事「#{@event.name}」を登録しました"
     else
       render :new
