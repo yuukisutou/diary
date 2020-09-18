@@ -1,17 +1,17 @@
 FROM ruby:2.5.8
-RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
-RUN mkdir /diary
-WORKDIR /diary
-COPY Gemfile /diary/Gemfile
-COPY Gemfile.lock /diary/Gemfile.lock
+RUN apt-get update -qq && \
+  apt-get install -y build-essential \
+  libpq-dev \
+  nodejs
+RUN mkdir /app_name
+ENV APP_ROOT /app_name
+WORKDIR $APP_ROOT
+
+ADD ./Gemfile $APP_ROOT/Gemfile
+ADD ./Gemfile.lock $APP_ROOT/Gemfile.lock
+
 RUN bundle install
-COPY . /diary
+ADD . $APP_ROOT
 
-# Add a script to be executed every time the container starts.
-COPY entrypoint.sh /usr/bin/
-RUN chmod +x /usr/bin/entrypoint.sh
-ENTRYPOINT ["entrypoint.sh"]
-EXPOSE 3000
-
-# Start the main process.
-CMD ["rails", "server", "-b", "0.0.0.0"]
+# 8080番でポートを起動する
+CMD /bin/sh -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 8080 -b '0.0.0.0'"
