@@ -83,13 +83,7 @@ test:
 #
 production:
   <<: *default
-<<<<<<< HEAD
   host: <%= Rails.application.credentials.rds[:host] %>
   database: <%= Rails.application.credentials.rds[:database] %>
   username: <%= Rails.application.credentials.rds[:username] %>
   password: <%= Rails.application.credentials.rds[:password] %>
-=======
-  database: diary_production
-  username: root
-  password: 
->>>>>>> 754c8fb5bb3adc64b70a514d40e8881653b9b7e6
