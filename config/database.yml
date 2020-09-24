@@ -84,5 +84,5 @@ test:
 production:
   <<: *default
   database: diary_production
-  username: root
+  username: postgres
   password: 
