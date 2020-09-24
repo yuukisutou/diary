@@ -7,11 +7,7 @@
 
 ・フレームワーク: Ruby on Rails 5.2.4.3
 
-・開発環境: Docker 19.03.12
-
-            nginx 1.12.2
-
-            puma 3.11
+・開発環境: Docker 19.03.12   nginx 1.12.2    puma 3.11
 
 ・データベース: PostgreSQL 12.3
 
