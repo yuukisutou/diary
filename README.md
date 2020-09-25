@@ -9,7 +9,7 @@
 
 ・開発環境: Docker 19.03.12
 
-・データベース: PostgreSQL 12.3
+・データベース: PostgreSQL 12.3 nginx 1.12.2 puma 3.11
 
 
 
