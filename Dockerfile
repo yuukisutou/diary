@@ -1,4 +1,4 @@
-FROM ruby:2.5.8
+FROM ruby:2.5.1
 RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
 RUN mkdir /diary
 WORKDIR /diary
