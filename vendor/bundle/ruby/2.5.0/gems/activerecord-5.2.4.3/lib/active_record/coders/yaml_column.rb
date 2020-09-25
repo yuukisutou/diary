@@ -45,6 +45,7 @@ module ActiveRecord
         rescue ArgumentError
           raise ArgumentError, "Cannot serialize #{object_class}. Classes passed to `serialize` must have a 0 argument constructor."
         end
+      end
     end
   end
 end
