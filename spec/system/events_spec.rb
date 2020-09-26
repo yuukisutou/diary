@@ -68,7 +68,7 @@ describe '日記管理機能', type: :system do
     
       it 'エラーとなる' do
         within '#error_explanation' do
-          expect(page).to have_content '内容を入力してください'
+          expect(page).to have_content '出来事を入力してください'
         end
       end
     end
