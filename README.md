@@ -34,4 +34,3 @@
 ・ページネーション機能 (Kaminari)
 
 ・非同期処理や定期実行を行う (Sidekiq)
-# deploy
