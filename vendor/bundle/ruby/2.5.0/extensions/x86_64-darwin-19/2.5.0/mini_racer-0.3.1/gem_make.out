@@ -1,0 +1,40 @@
+current directory: /Users/sudouyuuki/diary/vendor/bundle/ruby/2.5.0/gems/mini_racer-0.3.1/ext/mini_racer_extension
+/Users/sudouyuuki/.rbenv/versions/2.5.1/bin/ruby -I /Users/sudouyuuki/.rbenv/versions/2.5.1/lib/ruby/site_ruby/2.5.0 -r ./siteconf20200904-8748-1cexu6z.rb extconf.rb
+checking for -lpthread... yes
+checking for -lobjc... yes
+creating Makefile
+
+current directory: /Users/sudouyuuki/diary/vendor/bundle/ruby/2.5.0/gems/mini_racer-0.3.1/ext/mini_racer_extension
+make "DESTDIR=" clean
+
+current directory: /Users/sudouyuuki/diary/vendor/bundle/ruby/2.5.0/gems/mini_racer-0.3.1/ext/mini_racer_extension
+make "DESTDIR="
+compiling mini_racer_extension.cc
+clang: warning: argument unused during compilation: '-rdynamic' [-Wunused-command-line-argument]
+In file included from mini_racer_extension.cc:2:
+In file included from /Users/sudouyuuki/.rbenv/versions/2.5.1/include/ruby-2.5.0/ruby.h:33:
+In file included from /Users/sudouyuuki/.rbenv/versions/2.5.1/include/ruby-2.5.0/ruby/ruby.h:2040:
+/Users/sudouyuuki/.rbenv/versions/2.5.1/include/ruby-2.5.0/ruby/intern.h:47:19: warning: 'register' storage class specifier is deprecated and incompatible with C++17 [-Wdeprecated-register]
+void rb_mem_clear(register VALUE*, register long);
+                  ^~~~~~~~~
+/Users/sudouyuuki/.rbenv/versions/2.5.1/include/ruby-2.5.0/ruby/intern.h:47:36: warning: 'register' storage class specifier is deprecated and incompatible with C++17 [-Wdeprecated-register]
+void rb_mem_clear(register VALUE*, register long);
+                                   ^~~~~~~~~
+mini_racer_extension.cc:542:13: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+            array->Set(context, i, convert_ruby_to_v8(isolate, context, rb_ary_entry(value, i)));
+            ^~~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mini_racer_extension.cc:551:13: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+            object->Set(context, convert_ruby_to_v8(isolate, context, rb_ary_entry(pair, 0)),
+            ^~~~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mini_racer_extension.cc:1156:13: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+            context->Global()->Set(
+            ^~~~~~~~~~~~~~~~~~~~~~
+mini_racer_extension.cc:1181:25: warning: ignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result]
+                        value.As<Object>()->Set(
+                        ^~~~~~~~~~~~~~~~~~~~~~~
+6 warnings generated.
+linking shared-object mini_racer_extension.bundle
+
+current directory: /Users/sudouyuuki/diary/vendor/bundle/ruby/2.5.0/gems/mini_racer-0.3.1/ext/mini_racer_extension
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 mini_racer_extension.bundle ./.gem.20200904-8748-no6afc
