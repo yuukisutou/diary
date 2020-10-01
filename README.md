@@ -11,6 +11,7 @@
 
 ・データベース: PostgreSQL 12.3
 
+・その他:  CircleCI 2.1
 
 
 
