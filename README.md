@@ -11,7 +11,7 @@
 
 ・データベース: PostgreSQL 12.3
 
-・デプロイ: Heroku
+・PaaS: AWS,Heroku
 
 ・その他:  CircleCI 2.1
 
